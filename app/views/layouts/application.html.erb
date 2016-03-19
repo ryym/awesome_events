@@ -29,7 +29,11 @@
       <div id="navbar-menu" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to 'Twitterでログイン', '/auth/twitter' %>
+            <% if logged_in? %>
+              <%= link_to 'ログアウト', '/logout' %>
+            <% else %>
+              <%= link_to 'Twitterでログイン', '/auth/twitter' %>
+            <% end %>
           </li>
         </ul>
       </div>
