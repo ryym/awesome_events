@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, except: :show
 
   def new
     # Instanciate a new event.
@@ -13,6 +13,10 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
