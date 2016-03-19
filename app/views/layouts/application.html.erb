@@ -29,6 +29,9 @@
       <div id="navbar-menu" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <%= link_to 'イベントを作る', new_event_path %>
+          </li>
+          <li>
             <% if logged_in? %>
               <%= link_to 'ログアウト', '/logout' %>
             <% else %>
