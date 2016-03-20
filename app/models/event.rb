@@ -21,6 +21,10 @@ class Event < ActiveRecord::Base
 
   validate :start_time_should_be_before_end_time
 
+  def created_by?(user)
+    user && owner_id == user.id
+  end
+
   private
 
   def start_time_should_be_before_end_time
