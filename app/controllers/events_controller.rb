@@ -19,7 +19,24 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = current_users_event(params[:id])
+  end
+
+  def update
+    @event = current_users_event(params[:id])
+    if @event.update(event_params)
+      redirect_to @event, notice: '更新しました'
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def current_users_event(id)
+    current_user.created_events.find(id)
+  end
 
   def event_params
     params.require(:event).permit(
