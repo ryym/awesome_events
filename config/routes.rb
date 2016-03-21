@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :events do
-    resources :tickets
-  end
-
   root to: 'welcome#index'
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  resources :events do
+    resources :tickets
+  end
+
+  resources :users do
+    get :retire
+  end
 end
