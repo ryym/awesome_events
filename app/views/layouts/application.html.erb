@@ -31,13 +31,12 @@
           <li>
             <%= link_to 'イベントを作る', new_event_path %>
           </li>
-          <li>
-            <% if logged_in? %>
-              <%= link_to 'ログアウト', '/logout' %>
-            <% else %>
-              <%= link_to 'Twitterでログイン', '/auth/twitter' %>
-            <% end %>
-          </li>
+          <% if logged_in? %>
+            <li><%= link_to '退会する', user_retire_path(current_user) %></li>
+            <li><%= link_to 'ログアウト', '/logout' %></li>
+          <% else %>
+            <li><%= link_to 'Twitterでログイン', '/auth/twitter' %></li>
+          <% end %>
         </ul>
       </div>
     </div>
