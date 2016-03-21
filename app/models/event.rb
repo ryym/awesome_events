@@ -26,6 +26,13 @@ class Event < ActiveRecord::Base
     user && owner_id == user.id
   end
 
+  def ticket_of(user)
+    return unless user
+    tickets.find do |t|
+      t.user_id == user.id
+    end
+  end
+
   private
 
   def start_time_should_be_before_end_time

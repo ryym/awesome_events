@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @new_ticket = @event.tickets.build
+    @my_ticket = current_user && @event.ticket_of(current_user)
 
     # The `includes` method loads all relavent users.
     @tickets = @event.tickets.includes(:user).order(:created_at)

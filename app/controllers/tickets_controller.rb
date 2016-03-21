@@ -22,6 +22,14 @@ class TicketsController < ApplicationController
     end
   end
 
+  def destroy
+    ticket = current_user.tickets.find(params[:id])
+    ticket.destroy!
+
+    event_id = params[:event_id]
+    redirect_to event_path(event_id), notice: '参加をキャンセルしました'
+  end
+
   private
 
   def ticket_params
