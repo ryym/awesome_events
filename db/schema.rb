@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320135134) do
+ActiveRecord::Schema.define(version: 20160405134127) do
 
   create_table "events", force: true do |t|
-    t.integer  "owner_id",   limit: 255
-    t.string   "name",                   null: false
-    t.string   "place",                  null: false
-    t.datetime "start_time",             null: false
-    t.datetime "end_time",               null: false
-    t.text     "content",                null: false
+    t.integer  "owner_id",    limit: 255
+    t.string   "name",                    null: false
+    t.string   "place",                   null: false
+    t.datetime "start_time",              null: false
+    t.datetime "end_time",                null: false
+    t.text     "content",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "event_image"
   end
 
   add_index "events", ["owner_id"], name: "index_events_on_owner_id"
