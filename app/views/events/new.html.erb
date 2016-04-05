@@ -25,6 +25,10 @@
     <%= f.text_field :place, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.file_field :event_image %>
+    <%= f.hidden_field :event_image_cache %>
+  </div>
+  <div class="form-group">
     <%= f.label :start_time %>
     <div>
       <%= f.datetime_select :start_time,
