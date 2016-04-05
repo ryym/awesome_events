@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   # Register as helper methods to use them in views.
   helper_method :logged_in?, :current_user
 
-  rescue_from StandardError, with: :error500
-  rescue_from ActiveRecord::RecordNotFound, with: :error404
+  unless Rails.env.development?
+    rescue_from StandardError, with: :error500
+    rescue_from ActiveRecord::RecordNotFound, with: :error404
+  end
 
   def error404
     render 'error404', status: 404, formats: [:html]
