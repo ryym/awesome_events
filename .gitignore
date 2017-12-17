@@ -11,3 +11,5 @@
 
 # Ignore rbenv file
 .ruby-version
+
+.env

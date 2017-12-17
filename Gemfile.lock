@@ -43,6 +43,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.6.0)
     hashie (3.4.3)
@@ -151,6 +155,7 @@ PLATFORMS
 DEPENDENCIES
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari (~> 0.15.1)
